@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="card">
+    <h3 class="text-center">Edit Book</h3>
+    <div class="card-body px-lg-5 bg-dark rounded-1">
+      <form [formGroup]="editBook" (ngSubmit)="handleEditBook(editBook)">
+        <div class="mb-1 row">
+          <label for="enterId" class="py-2 h4 text-white">Book Id</label>
+          <input
+            type="number"
+            class="form-control"
+            id="editId"
+            formControlName="bookId"
+          />
+        </div>
+        <div class="mb-1 row">
+          <label for="enterName" class="py-2 h4 text-white">Book Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="editName"
+            formControlName="bookName"
+          />
+        </div>
+        <div class="mb-1 row">
+          <label for="enterAuthorName" class="py-2 h4 text-white"
+            >Author Name</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="editAuthorName"
+            formControlName="authorName"
+          />
+        </div>
+        <div class="mb-1 row">
+          <label for="enterPrice" class="py-2 h4 text-white">Price</label>
+          <input
+            type="number"
+            class="form-control"
+            id="editPrice"
+            formControlName="price"
+          />
+        </div>
+        <div class="mt-3 d-flex justify-content-center">
+          <button
+            class="btn btn-success btn-lg btn-block mx-2"
+            type="submit"
+            id="updateButton"
+            [disabled]="editBook.invalid || editBook.errors"
+          >
+            Update
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

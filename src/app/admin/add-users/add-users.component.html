@@ -1,0 +1,85 @@
+<div class="container">
+  <div class="card">
+    <h3 class="text-center">Add User</h3>
+    <div class="card-body px-lg-5 bg-dark rounded-1">
+      <form
+        method="post"
+        [formGroup]="addUser"
+        (ngSubmit)="handleAddUser(addUser)"
+      >
+        <div class="mb-1 row">
+          <label for="email" class="py-2 h4 text-white">User Type</label>
+          <select
+            class="form-control"
+            id="admin/user"
+            formControlName="userType"
+          >
+            <option value="">Enter Admin / User</option>
+            <option value="user">User</option>
+            <option value="admin">Admin</option>
+          </select>
+        </div>
+        <div class="mb-1 row">
+          <label for="enterId" class="py-2 h4 text-white">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            formControlName="email"
+          />
+        </div>
+        <div class="mb-1 row">
+          <label for="enterName" class="py-2 h4 text-white">User Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="username"
+            formControlName="userName"
+          />
+        </div>
+        <div class="mb-1 row">
+          <label for="enterMobileNumber" class="py-2 h4 text-white"
+            >Mobile Number</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="enterMobileNumber"
+            formControlName="mobileNumber"
+          />
+        </div>
+        <div class="mb-1 row">
+          <label for="enterPassword" class="py-2 h4 text-white">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="enterPassword"
+            formControlName="password"
+          />
+        </div>
+
+        <div class="mb-1 row">
+          <label for="enterConfirmPassword" class="py-2 h4 text-white"
+            >Confirm Password</label
+          >
+          <input
+            type="password"
+            class="form-control"
+            id="enterConfirmPassword"
+            formControlName="confirmPassword"
+          />
+        </div>
+        <div class="mt-3 d-flex justify-content-center">
+          <button
+            class="btn btn-success btn-lg btn-block"
+            type="submit"
+            id="addButton"
+            [disabled]="addUser.invalid || addUser.errors"
+          >
+            Add User
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

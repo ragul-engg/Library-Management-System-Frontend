@@ -1,1 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+html {
+  min-height: 100vh;
+}
+a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.9);
+}
+a:hover {
+  color: lightgreen;
+}
+::-moz-selection {
+  /* Code for Firefox */
+  color: red;
+  background: yellow;
+}
+
+::selection {
+  color: white;
+  background: black;
+}

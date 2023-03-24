@@ -1,0 +1,27 @@
+<nav class="navbar bg-dark px-5">
+  <h3 class="navbar-brand text-white">Library</h3>
+  <form
+    method="post"
+    class="d-flex gap-3 py-2"
+    [formGroup]="searchBook"
+    (ngSubmit)="handleSearch(searchBook)"
+  >
+    <!-- <form (submit)="handleSearch()"> -->
+    <input
+      type="text"
+      class="form-control"
+      formControlName="searchTerm"
+      placeholder="type here to search"
+    />
+    <button class="form-control w-50" type="submit" id="searchButton">
+      Search
+    </button>
+  </form>
+  <button
+    type="button"
+    class="btn btn-info text-white"
+    (click)="handleLogout()"
+  >
+    Logout
+  </button>
+</nav>
