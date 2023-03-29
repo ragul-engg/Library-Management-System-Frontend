@@ -47,9 +47,6 @@ export class AdminComponent implements OnInit {
   setBooks(books: Book[]) {
     this.books = books;
   }
-  getBooks() {
-    console.log(this.books);
-  }
   deleteBook(bookId: number) {
     this.books = this.books.filter((book) => book.bookId !== bookId);
     this.service.deleteBook(bookId);

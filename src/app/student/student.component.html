@@ -2,11 +2,6 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-lg-8 col-sm-6">
-      <!-- <app-book
-        *ngFor="let val of books"
-        [bookId]="val.bookId"
-        [bookName]="val.bookName"
-      ></app-book> -->
       <div class="container" *ngIf="!books.length">
         <p class="text-center mt-5">No books available</p>
       </div>
@@ -16,19 +11,32 @@
       >
         <div class="row px-2 py-2">
           <div class="col-8">
-            Book Name: {{ book.bookName | titlecase }} <br />
-            Author Name: {{ book.authorName | titlecase }}
+            <strong>Book Name: </strong>{{ book.bookName | titlecase }} <br />
+            <strong>Author Name: </strong>{{ book.authorName | titlecase }}
           </div>
           <div class="col-4 d-md-flex justify-content-md-end">
-            <button class="btn btn-success">Get Book</button>
+            <button
+              class="btn btn-info"
+              (click)="getBook(book.bookId)"
+              [disabled]="lendBookIds.indexOf(book.bookId) != -1"
+            >
+              Get Book
+            </button>
           </div>
         </div>
         <div class="row px-2 py-2">
           <div class="col-8">
-            Price: {{ book.price | currency : "INR" : "symbol" : ".0" }} / day
+            <strong>Price: </strong
+            >{{ book.price | currency : "INR" : "symbol" : ".0" }} / day
           </div>
           <div class="col-4 d-md-flex justify-content-md-end">
-            <button class="btn btn-danger">Return Book</button>
+            <button
+              class="btn btn-danger"
+              (click)="returnBook(book.bookId)"
+              [disabled]="lendBookIds.indexOf(book.bookId) == -1"
+            >
+              Return Book
+            </button>
           </div>
         </div>
       </div>

@@ -9,7 +9,7 @@ import { NotificationService } from './notification.service';
 })
 export class LibraryService {
   constructor(private http: HttpClient, private notifi: NotificationService) {}
-  rootURL = 'http://10.0.136.119:8080/api';
+  rootURL = 'http://10.0.137.203:8080/api';
 
   addUser(user: any) {
     this.http.post(this.rootURL + '/signup', user).subscribe((res: any) => {
@@ -35,5 +35,30 @@ export class LibraryService {
     return this.http.get<Book[]>(`${this.rootURL}/student/searchBooks`, {
       params: httpParams,
     });
+  }
+  lendBook(userId: number, bookId: number) {
+    this.http
+      .post(`${this.rootURL}/student/lend-book`, {
+        userId: userId,
+        bookId: bookId,
+      })
+      .subscribe();
+  }
+  getLendBooks(userId: number) {
+    return this.http.get(`${this.rootURL}/student/lend-book`, {
+      params: {
+        userId: userId,
+      },
+    });
+  }
+  returnBook(userId: number, bookId: number) {
+    this.http
+      .delete(`${this.rootURL}/student/return-book`, {
+        body: {
+          userId: userId,
+          bookId: bookId,
+        },
+      })
+      .subscribe();
   }
 }

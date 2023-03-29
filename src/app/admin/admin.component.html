@@ -1,22 +1,7 @@
 <app-header (books)="setBooks($event)"></app-header>
 <div class="container-fluid">
-  <!-- <div class="row mb-2">
-    <div class="col-9"></div>
-    <div class="col-3">
-      <button class="btn btn-primary mt-2" (click)="toggleView()">
-        <h4>Toggle Form</h4>
-      </button>
-    </div>
-  </div> -->
   <div class="row mb-5">
     <div class="col-lg-7 col-sm-6">
-      <!-- <app-book
-        *ngFor="let val of books; let idx = index"
-        [bookId]="val.bookId"
-        [bookName]="val.bookName"
-        [authorName]="val.authorName"
-        [price]="val.price"
-      ></app-book> -->
       <div class="container" *ngIf="!books.length">
         <p class="text-center mt-5">No books available</p>
       </div>
@@ -27,8 +12,8 @@
       >
         <div class="row px-2 py-2">
           <div class="col-10">
-            Book Name: {{ book.bookName | titlecase }} <br />
-            Author Name: {{ book.authorName | titlecase }}
+            <strong>Book Name: </strong>{{ book.bookName | titlecase }} <br />
+            <strong>Author Name: </strong>{{ book.authorName | titlecase }}
           </div>
           <div class="col-2">
             <button
@@ -42,7 +27,8 @@
         </div>
         <div class="row px-2 py-2">
           <div class="col-10">
-            Price: {{ book.price | currency : "INR" : "symbol" : ".0" }} / day
+            <strong>Price: </strong
+            >{{ book.price | currency : "INR" : "symbol" : ".0" }} / day
           </div>
           <div class="col-2">
             <button
@@ -57,10 +43,6 @@
       </div>
     </div>
     <div class="col-lg-5 col-sm-6" [ngSwitch]="currView">
-      <!-- <div *ngIf="isedit; then addBook; else updateBook"></div> -->
-      <!-- <ng-template [ngIf]="isedit">
-        <app-add-books #addBook>Hey </app-add-books>
-      </ng-template> -->
       <div class="my-2">
         <button class="btn btn-primary mx-2" (click)="toggleAddUser()">
           Add User
@@ -82,12 +64,6 @@
         [book]="selectedBook"
         *ngSwitchDefault
       ></app-edit-books>
-      <!-- <button (click)="getBooks()"><h3>Get Books</h3></button> -->
-
-      <!-- <app-add-books
-        *ngIf="isedit; else appHeader"
-        (books)="addBook($event)"
-      ></app-add-books> -->
     </div>
   </div>
 </div>

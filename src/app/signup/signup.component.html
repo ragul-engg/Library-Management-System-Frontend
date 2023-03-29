@@ -12,16 +12,10 @@
         >
           <div class="mb-1 row">
             <label for="email" class="py-2 h4 text-white">User Type</label>
-            <select
-              class="form-control"
-              id="admin/user"
-              formControlName="userType"
-            >
-              <!-- [(ngModel)]="user.type"
-            > -->
+            <select class="form-control" id="admin/user" formControlName="role">
               <option value="">Enter Admin / User</option>
-              <option value="user">User</option>
-              <option value="admin">Admin</option>
+              <option value="USER">User</option>
+              <option value="ADMIN">Admin</option>
             </select>
           </div>
           <div class="mb-1 row">

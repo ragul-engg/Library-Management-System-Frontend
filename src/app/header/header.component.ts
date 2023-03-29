@@ -35,6 +35,7 @@ export class HeaderComponent {
   }
   handleLogout() {
     this.router.navigate(['/']);
+    localStorage.removeItem('userId');
     this.notifi.showSuccess('Logout successful', 'Library.io');
   }
 }
