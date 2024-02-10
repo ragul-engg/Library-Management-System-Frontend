@@ -11,31 +11,11 @@ import { NotificationService } from '../service/notification.service';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent {
-  constructor(
-    private router: Router,
-    private notifi: NotificationService,
-    private service: LibraryService
-  ) {}
+  constructor(private router: Router, private service: LibraryService) {}
   @Output() books: EventEmitter<Book[]> = new EventEmitter<Book[]>();
-  searchBook: FormGroup = new FormGroup({
-    searchTerm: new FormControl('', [Validators.required]),
-  });
 
-  handleSearch(form: FormGroup) {
-    if (form.value.searchTerm !== null) {
-      this.service.searchBooks(form.value.searchTerm).subscribe((res) => {
-        this.books.emit(res);
-      });
-      form.reset();
-    } else {
-      this.service.getBooks().subscribe((res) => {
-        this.books.emit(res);
-      });
-    }
-  }
   handleLogout() {
-    this.router.navigate(['/']);
+    this.service.logout();
     localStorage.removeItem('userId');
-    this.notifi.showSuccess('Logout successful', 'Library.io');
   }
 }

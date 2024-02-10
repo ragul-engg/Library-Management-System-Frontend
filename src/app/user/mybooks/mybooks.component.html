@@ -1,0 +1,110 @@
+<div class="container-fluid my-5">
+  <!-- <form
+          method="post"
+          role="search"
+          class="px-1"
+          [formGroup]="searchBook"
+          (ngSubmit)="handleSearch(searchBook)"
+          >
+          <input
+          type="search"
+          class="form-control me-2"
+          formControlName="searchTerm"
+          placeholder="Enter book name to search"
+          />
+      </form> -->
+
+  <!-- <div class="container">
+    <form
+      [formGroup]="searchBook"
+      class="row row-cols-sm-auto g-3 justify-content-center"
+      (ngSubmit)="handleSearch(searchBook)"
+    >
+      <div class="col-12">
+        <div class="input-group">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Search Book"
+            name="searchTerm"
+            formControlName="searchTerm"
+          />
+        </div>
+      </div>
+
+      <div class="col-12 text-center">
+        <button type="submit" class="btn btn-primary">Search</button>
+      </div>
+    </form> -->
+  <!-- </div> -->
+  <div class="container" *ngIf="!books.length">
+    <p class="text-center mt-5 fw-bold text-white">No Books available...</p>
+  </div>
+  <div class="row d-flex mx-sm-2 mx-md-5 m">
+    <div
+      class="col-sm-6 col-md-4 col-lg-3 my-sm-5 m"
+      *ngFor="let book of books"
+    >
+      <div class="card bg-secondarygreen border border-2 border-dark">
+        <div class="card-body">
+          <div>
+            <img src="assets/bookcover-min.jpg" class="img-thumbnail" alt="" />
+          </div>
+          <div class="container-fluid m-y my-sm-2">
+            <div class="row">
+              <div class="col">
+                <p>
+                  <span class="fw-bold">Book Name: </span>{{ book.bookName }}
+                </p>
+                <p>
+                  <span class="fw-bold">Author Name: </span
+                  >{{ book.authorName }}
+                </p>
+                <!-- <p>
+                    <span class="fw-bold">Ratings: {{ 4.5 | number }}</span>
+                  </p> -->
+              </div>
+            </div>
+            <!-- <div class="row mb-1">
+              <button
+                class="btn btn-danger fw-bold"
+                (click)="getBook(book.bookId)"
+              >
+                Get Book
+              </button>
+            </div> -->
+            <div class="row mb-1">
+              <button
+                class="btn btn-danger fw-bold"
+                (click)="returnBook(book.bookId)"
+              >
+                Return Book
+              </button>
+            </div>
+            <div class="row">
+              <button
+                (click)="viewDetails(book.bookId)"
+                class="btn btn-primary text-white"
+              >
+                View More
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <!-- <div class="row"> -->
+      <button class="float-end btn btn-primary" routerLink="../">Home</button>
+      <!-- </div> -->
+    </div>
+    <div class="col">
+      <!-- <div class="row"> -->
+      <!-- <button class="btn btn-danger" (click)="service.goBack()">Back</button> -->
+      <!-- </div> -->
+    </div>
+  </div>
+</div>
+<!-- </div> -->

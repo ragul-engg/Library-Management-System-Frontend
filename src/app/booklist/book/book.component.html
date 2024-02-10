@@ -1,0 +1,33 @@
+<div class="container my-5">
+  <div class="row m-sm-5 m">
+    <div class="col-md-6">
+      <img src="assets/bookcover-min.jpg" class="img-thumbnail" />
+      <p class="fs-5">
+        <span class="fw-bold d-block">Book Name: </span>{{ book.bookName }}
+      </p>
+      <p class="fs-5">
+        <span class="fw-bold d-block">Author Name: </span>{{ book.authorName }}
+      </p>
+    </div>
+
+    <!-- <div class="col-md-6"> -->
+    <!-- <div class="row">
+        <p class="fs-5">Description about the book:</p>
+      </div> -->
+    <!-- </div> -->
+  </div>
+  <div class="row my-3">
+    <div class="col-3 mx-auto">
+      <div class="row">
+        <button class="btn btn-primary" (click)="viewBook()">View Book</button>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-3 mx-auto">
+      <div class="row">
+        <button class="float-end btn btn-danger" routerLink="../">Back</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Form, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { LibraryService } from '../service/library.service';
-import { LogInService } from './login.service';
 
 @Component({
   selector: 'app-login',
@@ -9,24 +8,21 @@ import { LogInService } from './login.service';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
-  constructor(private login: LogInService) {
-    // this.signupService.getUsers().subscribe(result->{
-    //   this.data=result;
-    // });
-  }
+  constructor(public service: LibraryService) {}
   loginForm = new FormGroup({
-    email: new FormControl('', [Validators.required, Validators.email]),
+    email: new FormControl(localStorage.getItem('lastLoginEmail'), [
+      Validators.required,
+      Validators.email,
+    ]),
     password: new FormControl('', [Validators.required]),
+    checked: new FormControl(true),
   });
-
-  // user = {
-  //   email: '',
-  //   password: '',
-  // };
   handleLogin(loginForm: FormGroup) {
-    console.log(loginForm.value);
-    this.login.auth(loginForm.value);
-    // this.login.auth(this.user);
-    // console.log(this.data);
+    if (loginForm.get('checked')!.value) {
+      localStorage.setItem('lastLoginEmail', loginForm.get('email')!.value);
+    } else {
+      localStorage.removeItem('lastLoginEmail');
+    }
+    this.service.auth(loginForm.value);
   }
 }

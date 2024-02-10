@@ -1,0 +1,48 @@
+<nav class="navbar bg-primaryblue px-sm-5 p px-xs-2">
+  <h3 class="navbar-brand text-center fw-bold" role="button" routerLink="/">
+    E-Library
+    <i class="bi bi-book-half"></i>
+  </h3>
+  <div class="t" class="links">
+    <ul class="d-flex flex-row gap-sm-5 g">
+      <li>
+        <a class="hover-under-line" routerLink="/">Home</a>
+      </li>
+      <li>
+        <a class="hover-under-line" routerLink="aboutus">About Us</a>
+      </li>
+      <li>
+        <a class="hover-under-line" routerLink="contactus">Contact Us</a>
+      </li>
+    </ul>
+  </div>
+  <div class="gap-2 d-flex">
+    <button class="btn btn-primary fw-bold t" routerLink="/login">
+      Login <i class="bi bi-box-arrow-in-right"></i>
+    </button>
+    <button class="btn btn-primary fw-bold t" routerLink="/signup">
+      Sign Up <i class="bi bi-person-plus"></i>
+    </button>
+  </div>
+  <div class="dropdown links-menu">
+    <button
+      class="btn btn-primary t"
+      type="button"
+      data-bs-toggle="dropdown"
+      aria-expanded="false"
+    >
+      <i class="bi bi-list"></i>
+    </button>
+    <ul class="dropdown-menu bg-secondarycolor dropdown-menu-end">
+      <li class="t"><a class="dropdown-item" routerLink="">Home</a></li>
+      <li class="t">
+        <a class="dropdown-item" routerLink="aboutus">About Us</a>
+      </li>
+      <li class="t">
+        <a class="dropdown-item" routerLink="contactus">Contact Us</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<router-outlet></router-outlet>
+<!-- <app-footer></app-footer> -->

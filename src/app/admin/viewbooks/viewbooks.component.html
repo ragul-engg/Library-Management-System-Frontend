@@ -1,0 +1,153 @@
+<!-- <div class="container">
+  <div class="row mb-sm-5 m">
+    <div class="container" *ngIf="!books.length">
+      <p class="text-center mt-5">No books available</p>
+    </div>
+    <div
+      class="container border border-2 border-dark bg-secondaryblue rounded-2 my-sm-3 m-y p"
+      *ngFor="let book of books; let idx = index"
+      [id]="'grid' + (idx + 1)"
+    >
+      <div class="row px-sm-2 py-sm-2 p-y">
+        <div class="col-md-8 m-y">
+          <strong>Book Name: </strong>{{ book.bookName | titlecase }} <br />
+          <strong>Author Name: </strong>{{ book.authorName | titlecase }}<br />
+          <strong>Price: </strong
+          >{{ book.price | currency : "INR" : "symbol" : ".0" }} / day
+        </div>
+        <div class="col-md-4 gap-2 d-flex">
+          <button
+            [id]="'edit ' + (idx + 1)"
+            class="btn btn-info t"
+            (click)="editBook(book.bookId)"
+          >
+            Edit
+            <i class="bi bi-pencil-square"></i>
+          </button>
+          <button
+            [id]="'delete ' + (idx + 1)"
+            class="btn btn-danger t"
+            (click)="deleteBook(book.bookId)"
+          >
+            Delete
+            <i class="bi bi-trash"></i>
+          </button>
+          <button class="btn btn-primary t">
+            Preview
+            <i class="bi bi-eye"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+<div class="container-fluid my-5">
+  <!-- <form
+        method="post"
+        role="search"
+        class="px-1"
+        [formGroup]="searchBook"
+        (ngSubmit)="handleSearch(searchBook)"
+        >
+        <input
+        type="search"
+        class="form-control me-2"
+        formControlName="searchTerm"
+        placeholder="Enter book name to search"
+        />
+    </form> -->
+
+  <div class="container">
+    <form
+      [formGroup]="searchBook"
+      class="row row-cols-sm-auto g-3 justify-content-center"
+      (ngSubmit)="handleSearch(searchBook)"
+    >
+      <div class="col-12">
+        <div class="input-group">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Search Book"
+            name="searchTerm"
+            formControlName="searchTerm"
+          />
+        </div>
+      </div>
+
+      <div class="col-12">
+        <button type="submit" class="btn btn-primary">Search</button>
+      </div>
+    </form>
+  </div>
+  <div class="container" *ngIf="!books.length">
+    <p class="text-center mt-5 fw-bold text-white">No Books available...</p>
+  </div>
+  <div class="row d-flex mx-sm-2 mx-md-4 m">
+    <div
+      class="col-sm-6 col-md-4 col-lg-3 my-sm-5 m"
+      *ngFor="let book of books"
+    >
+      <div class="card bg-secondarygreen border border-2 border-dark">
+        <div class="card-body">
+          <div>
+            <img src="assets/bookcover-min.jpg" class="img-thumbnail" alt="" />
+          </div>
+          <div class="container-fluid m-y my-sm-2">
+            <div class="row">
+              <div class="col">
+                <p>
+                  <span class="fw-bold">Book Name: </span>{{ book.bookName }}
+                </p>
+                <p>
+                  <span class="fw-bold">Author Name: </span
+                  >{{ book.authorName }}
+                </p>
+                <p>
+                  <span class="fw-bold">Price: </span>
+                  {{ book.price }}
+                </p>
+                <!-- <p>
+                  <span class="fw-bold">Ratings: {{ 4.5 | number }}</span>
+                </p> -->
+              </div>
+            </div>
+            <div class="row mb-1">
+              <button
+                class="btn btn-danger fw-bold"
+                (click)="editBook(book.bookId)"
+              >
+                Edit Book
+              </button>
+            </div>
+            <div class="row mb-1">
+              <button
+                class="btn btn-danger fw-bold"
+                (click)="deleteBook(book.bookId)"
+              >
+                Delete Book
+              </button>
+            </div>
+            <div class="row">
+              <button
+                class="btn btn-primary text-white"
+                (click)="viewDetails(book.bookId)"
+              >
+                View More
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-3 mx-auto">
+      <div class="row">
+        <button class="float-end btn btn-danger" (click)="service.goBack()">
+          Back
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

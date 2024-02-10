@@ -1,91 +1,140 @@
-<div class="container-fluid">
-  <div class="row bg-dark mb-4">
-    <h1 class="text-center text-white">Sign Up</h1>
-  </div>
-  <div class="container d-flex justify-content-center">
-    <div class="card mb-5">
-      <div class="card-body px-5 bg-secondary rounded-1">
-        <form
-          method="post"
-          [formGroup]="signupForm"
-          (ngSubmit)="handleSignUp(signupForm)"
-        >
-          <div class="mb-1 row">
-            <label for="email" class="py-2 h4 text-white">User Type</label>
-            <select class="form-control" id="admin/user" formControlName="role">
-              <option value="">Enter Admin / User</option>
-              <option value="USER">User</option>
-              <option value="ADMIN">Admin</option>
-            </select>
+<nav class="navbar bg-primaryblue mb-5 px-sm-5 p">
+  <h3 class="navbar-brand fw-bold" role="button" routerLink="/">
+    E-Library <i class="bi bi-book-half"></i>
+  </h3>
+</nav>
+<div class="container pb-2">
+  <div class="card mb-5 border border-2 border-light">
+    <div class="card-body px-lg-5 bg-secondaryblue rounded-1">
+      <form
+        method="post"
+        [formGroup]="signupForm"
+        (ngSubmit)="handleSignUp(signupForm)"
+      >
+        <div class="container-fluid">
+          <p class="text-center fw-bold fs-5">
+            Signing up is the key to success !!!
+          </p>
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <div class="mb-1">
+                <label for="email" class="py-2">User Type</label>
+                <select
+                  class="form-control t"
+                  id="admin/user"
+                  formControlName="role"
+                >
+                  <option class="text-black" value="">
+                    Enter Admin / User
+                  </option>
+                  <option class="text-black" value="USER">User</option>
+                  <option class="text-black" value="ADMIN">Admin</option>
+                </select>
+              </div>
+              <div class="mb-1">
+                <label for="email" class="py-2">Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  formControlName="email"
+                />
+              </div>
+              <div class="mb-1">
+                <label for="username" class="py-2">User Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="username"
+                  formControlName="userName"
+                />
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="mb-1">
+                <label for="mobileNumber" class="py-2">Mobile Number</label>
+                <input
+                  type="tel"
+                  class="form-control"
+                  id="mobileNumber"
+                  formControlName="mobileNumber"
+                />
+              </div>
+              <div class="mb-1 password-container">
+                <label for="password" class="py-2">Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="password"
+                  formControlName="password"
+                />
+                <i
+                  class="bi bi-eye eye text-black"
+                  (click)="signupService.togglePass()"
+                ></i>
+              </div>
+              <div class="mb-1 password-container">
+                <label for="password" class="py-2">Confirm Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="confirmPassword"
+                  formControlName="confirmPassword"
+                />
+                <i
+                  class="bi bi-eye eye text-black"
+                  (click)="signupService.togglePass()"
+                ></i>
+              </div>
+            </div>
           </div>
-          <div class="mb-1 row">
-            <label for="email" class="py-2 h4 text-white">Email</label>
-            <input
-              type="email"
-              class="form-control"
-              id="email"
-              formControlName="email"
-            />
+          <div class="row mb-3">
+            <div class="col-sm-6 col-md-4 mx-auto">
+              <div class="row p-x">
+                <button
+                  class="btn btn-primary fw-bold"
+                  type="submit"
+                  id="submitButton"
+                  [disabled]="signupForm.invalid"
+                >
+                  Signup
+                </button>
+              </div>
+            </div>
           </div>
-          <div class="mb-1 row">
-            <label for="username" class="py-2 h4 text-white">User Name</label>
-            <input
-              type="username"
-              class="form-control"
-              id="username"
-              formControlName="userName"
-            />
+          <div class="row">
+            <div class="col-sm-6 col-md-4 mx-auto">
+              <div class="row p-x">
+                <button
+                  class="btn btn-danger fw-bold"
+                  type="button"
+                  routerLink="/login"
+                >
+                  Login
+                </button>
+              </div>
+            </div>
           </div>
-          <div class="mb-1 row">
-            <label for="mobileNumber" class="py-2 h4 text-white"
-              >Mobile Number</label
-            >
-            <input
-              type="tel"
-              class="form-control"
-              id="mobileNumber"
-              formControlName="mobileNumber"
-            />
+        </div>
+
+        <div class="text-center mt-2">OR</div>
+        <div class="mb-3 d-flex flex-column align-items-center">
+          <span>Sign Up using</span>
+          <div class="d-flex gap-2">
+            <i class="bi bi-google hover-under-line btn"></i>
+            <i class="bi bi-github hover-under-line btn"></i>
+            <i class="bi bi-facebook hover-under-line btn"></i>
           </div>
-          <div class="mb-1 row">
-            <label for="password" class="py-2 h4 text-white">Password</label>
-            <input
-              type="password"
-              class="form-control"
-              id="password"
-              formControlName="password"
-            />
-          </div>
-          <div class="mb-1 row">
-            <label for="password" class="py-2 h4 text-white"
-              >Confirm Password</label
-            >
-            <input
-              type="password"
-              class="form-control"
-              id="confirmPassword"
-              formControlName="confirmPassword"
-            />
-          </div>
-          <div class="mt-2 d-flex justify-content-center">
-            <button
-              class="btn btn-success btn-lg btn-block"
-              type="submit"
-              id="submitButton"
-              [disabled]="signupForm.invalid"
-            >
-              Submit
-            </button>
-          </div>
-          <div class="mt-3 d-flex justify-content-center">
-            <h5>
-              Have you been here before?<a routerLink="/" id="signinLink">
-                Login</a
-              >
-            </h5>
-          </div>
-        </form>
-      </div>
+        </div>
+        <div class="mt-3 d-flex justify-content-center">
+          <p class="text-center t">
+            Have you been here before? Try Logging in instead
+          </p>
+        </div>
+
+        <!-- </div> -->
+        <!-- </div> -->
+      </form>
     </div>
   </div>
 </div>

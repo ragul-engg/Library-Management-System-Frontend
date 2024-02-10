@@ -1,0 +1,15 @@
+<div class="container-fluid py-2">
+  <!-- <input (change)="onFileSelected()" type="file" id="file" /> -->
+  <pdf-viewer
+    [src]="pdfSrc"
+    [render-text]="true"
+    [original-size]="false"
+    [fit-to-page]="true"
+    style="height: 100vh"
+  ></pdf-viewer>
+  <div class="row m-y my-sm-3">
+    <button class="btn btn-danger w-25 mx-auto" (click)="service.goBack()">
+      Back
+    </button>
+  </div>
+</div>

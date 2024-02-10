@@ -1,61 +1,107 @@
-<div class="container-fluid">
-  <div class="row bg-dark mb-5">
-    <h1 class="text-center text-white">Login</h1>
-  </div>
-  <div class="container d-flex justify-content-center">
-    <div class="card">
-      <div class="card-body px-5 bg-secondary rounded-1">
-        <form
-          [formGroup]="loginForm"
-          method="post"
-          (ngSubmit)="handleLogin(loginForm)"
-        >
-          <div class="mb-3 row">
-            <label for="email" class="py-2 h4 text-white">Email</label>
-            <input
-              type="email"
-              class="form-control"
-              id="email"
-              formControlName="email"
-              autofocus
-            />
+<nav class="navbar bg-primaryblue mb-4 px-sm-5 p">
+  <h3 class="navbar-brand text-center fw-bold" role="button" routerLink="/">
+    E-Library <i class="bi bi-book-half"></i>
+  </h3>
+  <!-- <h5 class="text-center fw-bold fs-6">Welcome back :)</h5> -->
+</nav>
+<div class="container-fluid d-flex justify-content-center">
+  <div class="card border border-2 border-light">
+    <div class="card-body px-5 bg-secondaryblue rounded-1">
+      <form
+        [formGroup]="loginForm"
+        method="post"
+        (ngSubmit)="handleLogin(loginForm)"
+      >
+        <div class="row">
+          <p class="text-center fs-5 fw-bold">Welcome Back :)</p>
+        </div>
+        <div class="mb-2 row">
+          <label for="email" class="py-2">E-mail</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            formControlName="email"
+            autofocus
+          />
+        </div>
+        <div class="mb-2 row" id="password-container">
+          <label for="password" class="py-2">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            formControlName="password"
+          />
+          <i class="bi bi-eye eye" (click)="service.togglePass()"></i>
+        </div>
+        <div class="row mb-2">
+          <div class="col">
+            <div class="form-check">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                formControlName="checked"
+                name="checked"
+                id="remember"
+                style="cursor: pointer"
+              />
+              <label class="form-check-label t" for="remember"
+                >Remeber Me!</label
+              >
+            </div>
           </div>
-          <div class="mb-3 row">
-            <label for="password" class="py-2 h4 text-white">Password</label>
-            <input
-              type="password"
-              class="form-control"
-              id="password"
-              formControlName="password"
-            />
-          </div>
-          <div class="mt-4 d-flex justify-content-center">
-            <button
-              type="submit"
-              [disabled]="loginForm.invalid"
-              id="loginButton"
-              class="btn btn-success btn-lg btn-block"
+          <div class="col">
+            <a routerLink="/login" class="text-decoration-none text-white t"
+              >Forgot Password?</a
             >
-              Login
-            </button>
           </div>
-          <!-- <div class="mt-4 d-flex justify-content-center">
-            <button
-              class="btn btn-success btn-lg btn-block"
-              type="button"
-              (click)="getInfo()"
-            >
-              Get Info
-            </button>
-          </div> -->
-          <div class="mt-3 d-flex justify-content-center">
-            <h5>
-              Don't Have an account?
-              <a routerLink="/signup" id="signupLink">Sign-up</a>
-            </h5>
+        </div>
+        <!-- <div class="mb-2 form-check">
+          <input
+            type="checkbox"
+            class="form-check-input"
+            formControlName="checked"
+            name="checked"
+            id="remember"
+            style="cursor: pointer"
+          />
+          <label class="form-check-label t" for="remember">Remeber Me !</label>
+        </div> -->
+        <div class="mb-2 row">
+          <button
+            type="submit"
+            id="loginButton"
+            [disabled]="loginForm.invalid"
+            class="btn btn-primary fw-bold"
+          >
+            Login
+          </button>
+        </div>
+        <div class="mb-2 row">
+          <!-- <a class="hover-under-line" role="button">Forgot password?</a> -->
+          <!-- <a class="hover-under-line t" role="button">Signup</a> -->
+          <button
+            type="button"
+            class="btn btn-danger fw-bold"
+            routerLink="/signup"
+          >
+            Signup
+          </button>
+        </div>
+        <div class="text-center">OR</div>
+        <div class="mb-2 d-flex flex-column align-items-center">
+          <span>Log in using</span>
+          <div class="d-flex gap-2">
+            <i class="bi bi-google hover-under-line btn"></i>
+            <i class="bi bi-github hover-under-line btn"></i>
+            <i class="bi bi-facebook hover-under-line btn"></i>
           </div>
-        </form>
-      </div>
+        </div>
+        <div class="mt-3 text-center">
+          <p class="t text-center">Don't Have an account? Sign-up instead</p>
+        </div>
+      </form>
     </div>
   </div>
 </div>

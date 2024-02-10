@@ -1,13 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
-html {
+:root {
+  --primaryblue: #74b3ce;
+  --secondaryblue: #508991;
+  --primarygreen: #004346;
+  --secondarygreen: #09bc8a;
+  --font-color: #fff;
+  --bg-color: #172a3a;
+}
+* {
+  box-sizing: border-box;
+  color: var(--font-color);
+  font-family: "Open Sans", sans-serif;
+}
+
+[data-theme="light"] {
+  --font-color: #000;
+  --bg-color: #fff;
+}
+body {
   min-height: 100vh;
+  background-color: var(--bg-color);
 }
-a {
-  text-decoration: none;
-  color: rgba(255, 255, 255, 0.9);
-}
-a:hover {
-  color: lightgreen;
+
+ul {
+  list-style: none;
 }
 ::-moz-selection {
   /* Code for Firefox */
@@ -18,4 +34,113 @@ a:hover {
 ::selection {
   color: white;
   background: black;
+}
+
+.bg-primaryblue {
+  background-color: var(--primaryblue);
+}
+.bg-secondaryblue {
+  background-color: var(--secondaryblue);
+}
+.bg-primarygreen {
+  background-color: var(--primarygreen);
+}
+.bg-secondarygreen {
+  background-color: var(--secondarygreen);
+}
+
+.hover-under-line {
+  text-decoration: none;
+  /* padding-bottom: 5px; */
+  color: black;
+  font-size: 1.1rem;
+  font-weight: 700;
+  display: inline-block;
+  position: relative;
+}
+
+.hover-under-line::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 3px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--bg-color);
+  transform-origin: bottom right;
+  transition: transform 0.2s ease-out;
+}
+.hover-under-line:hover {
+  /* border: 3px solid red; */
+  color: white;
+}
+
+.hover-under-line:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+.links-menu {
+  display: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+@media (max-width: 576px) {
+  .p {
+    padding: 0.6rem;
+  }
+  .p-x {
+    padding: 0 0.6rem;
+  }
+  .p-y {
+    padding: 0.6rem 0;
+  }
+  .m {
+    margin: 0.5rem;
+  }
+  .m-x {
+    margin: 0px 0.5rem;
+  }
+  .m-y {
+    margin: 0.5rem 0;
+  }
+  .t {
+    font-size: 0.6rem;
+  }
+  .g {
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .t {
+    font-size: 0.8rem;
+  }
+  .links-menu {
+    display: block;
+  }
+}
+body::-webkit-scrollbar {
+  width: 0.5em;
+  height: 0.5em;
+}
+
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px var(--secondarygreen);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #fff;
+  border-radius: 5px;
+  outline: 1px solid black;
 }

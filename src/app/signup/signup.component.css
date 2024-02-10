@@ -1,0 +1,10 @@
+.password-container {
+  position: relative;
+}
+.eye {
+  position: absolute;
+  cursor: pointer;
+  top: 65%;
+  right: 5%;
+  width: 10px;
+}

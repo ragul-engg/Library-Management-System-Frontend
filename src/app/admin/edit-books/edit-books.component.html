@@ -1,10 +1,12 @@
 <div class="container">
-  <div class="card">
+  <div
+    class="card border border-2 border-light bg-secondaryblue px-sm-5 pb-sm-5 pt-sm-3 p"
+  >
     <h3 class="text-center">Edit Book</h3>
-    <div class="card-body px-lg-5 bg-dark rounded-1">
+    <div class="card-body px-lg-5 border border-2 border-dark rounded-1">
       <form [formGroup]="editBook" (ngSubmit)="handleEditBook(editBook)">
         <div class="mb-1 row">
-          <label for="enterId" class="py-2 h4 text-white">Book Id</label>
+          <label for="enterId" class="py-2 h5">Book Id</label>
           <input
             type="number"
             class="form-control"
@@ -13,7 +15,7 @@
           />
         </div>
         <div class="mb-1 row">
-          <label for="enterName" class="py-2 h4 text-white">Book Name</label>
+          <label for="enterName" class="py-2 h5">Book Name</label>
           <input
             type="text"
             class="form-control"
@@ -22,9 +24,7 @@
           />
         </div>
         <div class="mb-1 row">
-          <label for="enterAuthorName" class="py-2 h4 text-white"
-            >Author Name</label
-          >
+          <label for="enterAuthorName" class="py-2 h5">Author Name</label>
           <input
             type="text"
             class="form-control"
@@ -33,7 +33,7 @@
           />
         </div>
         <div class="mb-1 row">
-          <label for="enterPrice" class="py-2 h4 text-white">Price</label>
+          <label for="enterPrice" class="py-2 h5">Price</label>
           <input
             type="number"
             class="form-control"
@@ -41,16 +41,34 @@
             formControlName="price"
           />
         </div>
-        <div class="mt-3 d-flex justify-content-center">
-          <button
-            class="btn btn-success btn-lg btn-block mx-2"
-            type="submit"
-            id="updateButton"
-            [disabled]="editBook.invalid || editBook.errors"
-          >
-            Update
-          </button>
+        <div class="row mt-2 m-x">
+          <div class="col-sm-8 col-md-4 mx-auto">
+            <div class="row">
+              <button
+                class="btn btn-primary btn-lg btn-block mx-2"
+                type="submit"
+                id="updateButton"
+                [disabled]="editBook.invalid || editBook.errors"
+              >
+                Update
+              </button>
+            </div>
+          </div>
         </div>
+        <div class="row mt-2 m-x">
+          <div class="col-sm-8 col-md-4 mx-auto">
+            <div class="row">
+              <button
+                class="btn btn-danger btn-lg btn-block mx-2"
+                type="button"
+                (click)="service.goBack()"
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="mt-3 d-flex justify-content-center"></div>
       </form>
     </div>
   </div>

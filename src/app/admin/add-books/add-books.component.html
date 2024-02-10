@@ -1,14 +1,16 @@
 <div class="container">
-  <div class="card">
-    <h3 class="text-center">Add Book</h3>
-    <div class="card-body px-lg-5 bg-dark rounded-1">
+  <div
+    class="card mb-5 border border-2 border-light bg-secondaryblue px-sm-5 pb-sm-5 pt-sm-3 p"
+  >
+    <h3 class="text-center text-white">Add Book</h3>
+    <div class="card-body px-lg-5 border border-2 border-dark rounded-1">
       <form
         method="post"
         [formGroup]="addBook"
         (ngSubmit)="handleAddBook(addBook)"
       >
-        <div class="mb-1 row">
-          <label for="enterId" class="py-2 h4 text-white">Book Id</label>
+        <div class="mb-1">
+          <label for="enterId" class="py-2 h5">Book Id</label>
           <input
             type="number"
             class="form-control"
@@ -16,8 +18,8 @@
             formControlName="bookId"
           />
         </div>
-        <div class="mb-1 row">
-          <label for="enterName" class="py-2 h4 text-white">Book Name</label>
+        <div class="mb-1">
+          <label for="enterName" class="py-2 h5">Book Name</label>
           <input
             type="text"
             class="form-control"
@@ -25,10 +27,8 @@
             formControlName="bookName"
           />
         </div>
-        <div class="mb-1 row">
-          <label for="enterAuthorName" class="py-2 h4 text-white"
-            >Author Name</label
-          >
+        <div class="mb-1">
+          <label for="enterAuthorName" class="py-2 h5">Author Name</label>
           <input
             type="text"
             class="form-control"
@@ -36,8 +36,8 @@
             formControlName="authorName"
           />
         </div>
-        <div class="mb-1 row">
-          <label for="enterPrice" class="py-2 h4 text-white">Price</label>
+        <div class="mb-1">
+          <label for="enterPrice" class="py-2 h5">Price</label>
           <input
             type="number"
             class="form-control"
@@ -45,15 +45,44 @@
             formControlName="price"
           />
         </div>
-        <div class="mt-3 d-flex justify-content-center">
-          <button
-            class="btn btn-success btn-lg btn-block"
-            type="submit"
-            id="addButton"
-            [disabled]="addBook.invalid || addBook.errors"
+        <div class="mb-1">
+          <label for="enterFile" class="py-2 h5"
+            >Upload Book [.pdf files only]</label
           >
-            Add Book
-          </button>
+          <input
+            type="file"
+            id="enterFile"
+            class="form-control"
+            accept=".pdf"
+            (change)="changeFile($event)"
+          />
+        </div>
+        <div class="row mt-2 m-x">
+          <div class="col-sm-8 col-md-4 mx-auto">
+            <div class="row">
+              <button
+                class="btn btn-primary btn-lg btn-block"
+                type="submit"
+                id="addButton"
+                [disabled]="addBook.invalid || addBook.errors"
+              >
+                Add Book
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-2 m-x">
+          <div class="col-sm-8 col-md-4 mx-auto">
+            <div class="row">
+              <button
+                class="btn btn-danger btn-lg btn-block"
+                type="button"
+                routerLink="/admin"
+              >
+                Back
+              </button>
+            </div>
+          </div>
         </div>
       </form>
     </div>
